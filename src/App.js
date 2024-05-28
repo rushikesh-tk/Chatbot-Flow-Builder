@@ -1,44 +1,22 @@
-import React, { useCallback } from "react";
-import ReactFlow, {
-  MiniMap,
-  Controls,
-  Background,
-  useNodesState,
-  useEdgesState,
-  addEdge,
-} from "reactflow";
+import React from "react";
+import Flow from "./components/Flow/Flow";
+import { ReactFlowProvider } from "reactflow";
+import Sidebar from "./components/Sidebar/Sidebar";
+import Header from "./components/Header/Header";
+import "./App.css";
 
-import "reactflow/dist/style.css";
-
-const initialNodes = [
-  { id: "1", position: { x: 0, y: 0 }, data: { label: "1" } },
-  { id: "2", position: { x: 0, y: 100 }, data: { label: "2" } },
-  { id: "3", position: { x: 100, y: 500 }, data: { label: "Hey man" } },
-];
-const initialEdges = [{ id: "e1-2", source: "1", target: "2" }];
-
-export default function App() {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-
-  const onConnect = useCallback(
-    (params) => setEdges((eds) => addEdge(params, eds)),
-    [setEdges]
-  );
-
+const App = () => {
   return (
-    <div style={{ width: "100vw", height: "100vh" }}>
-      <ReactFlow
-        nodes={nodes}
-        edges={edges}
-        onNodesChange={onNodesChange}
-        onEdgesChange={onEdgesChange}
-        onConnect={onConnect}
-      >
-        <Controls />
-        <MiniMap />
-        <Background variant="dots" gap={12} size={1} />
-      </ReactFlow>
+    <div className="app-main">
+      <ReactFlowProvider>
+        <Header />
+        <div className="layout-main">
+          <Flow />
+          <Sidebar />
+        </div>
+      </ReactFlowProvider>
     </div>
   );
-}
+};
+
+export default App;
