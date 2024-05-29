@@ -1,4 +1,12 @@
 .sidebar {
-    height:  90vh;
+    height: 90vh;
     width: 25%;
+    border-left: 2px solid #ececec;
 }
+
+.msg-text{
+    font-size: large;
+    font-weight: 500;
+    color: #0041d0;
+}
+
