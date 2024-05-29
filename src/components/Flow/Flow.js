@@ -48,7 +48,7 @@ const rfStyle = {
 const nodeTypes = { text: TextNode };
 
 let id = 1;
-const getId = () => `${id++}`;
+const getId = () => `${id++}`; // to assign new id to every node
 
 const Flow = (props) => {
   const { selectedNode, setSelectedNode, nodes, setNodes, edges, setEdges } =
@@ -114,9 +114,9 @@ const Flow = (props) => {
         position,
         data: {
           value: `${type} message ${node_id}`,
-          onClick: () => onNodeClick(null, { id: node_id }),
+          onClick: () => onNodeClick(null, { id: node_id }), // onclick event to keep track on selected node
         },
-      };
+      }; // creating new node to add in the node list
 
       setNodes((nds) => nds.concat(newTempNode));
     },

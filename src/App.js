@@ -23,7 +23,7 @@ const App = () => {
 
     const updatedNodes = nodes.map((node) => {
       if (node.id === selectedNode.id) {
-        node.data.value = value;
+        node.data.value = value; // Updating node text value according to side bar input change
       }
       return node;
     });
@@ -32,6 +32,7 @@ const App = () => {
   };
 
   const checkFlowValidation = () => {
+    // checking flow validation if there is any node without any connections or not
     const sourceNodes = new Set(edges.map((edge) => edge.source));
     const targetNodes = new Set(edges.map((edge) => edge.target));
 
@@ -55,6 +56,7 @@ const App = () => {
         type: "error",
       });
     } else {
+      // saving flow data to local storage for easy retrival
       localStorage.setItem("flowChart", JSON.stringify({ nodes, edges }));
       toast("Flow chart saved successfullly", { type: "success" });
     }
@@ -64,6 +66,7 @@ const App = () => {
     if (nodes.length == 0) {
       toast("No flow present to delete", { type: "info" });
     } else {
+      // clearing local storage for deletion of flow
       localStorage.removeItem("flowChart");
       setNodes([]);
       setEdges([]);
@@ -72,6 +75,7 @@ const App = () => {
   };
 
   useEffect(() => {
+    // getting flow data from local storage
     let flowChart = localStorage.getItem("flowChart");
 
     if (flowChart) {

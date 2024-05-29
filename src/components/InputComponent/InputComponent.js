@@ -24,7 +24,7 @@ const InputComponent = (props) => {
           <textarea
             rows={4}
             cols={40}
-            onChange={(e) => modifyNodeslist(e.target.value)}
+            onChange={(e) => modifyNodeslist(e.target.value)} // sending input value to refect it in the text node
             placeholder="Enter text message here"
             value={selectedNode.data.value}
           />
