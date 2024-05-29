@@ -1,6 +1,7 @@
 .header-bar{
     background-color: #f3f3f3;
     height: 10vh;
+    border-bottom:  2px solid #ececec;
 }
 
 .save-btn{
@@ -18,4 +19,8 @@
     float: right;
     margin-top: 2vh;
     margin-right: 3vw;
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    align-items: center;
 }
