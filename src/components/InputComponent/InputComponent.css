@@ -1,0 +1,36 @@
+.input-container{
+    display: flex;
+    flex-direction: column;
+}
+
+.input-container-top{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 2vh;
+    border-bottom: 2px solid #ececec;
+}
+
+.back-arrow{
+    font-size: 2vh;
+    color: #606163;
+    cursor: pointer;
+}
+
+.header-div{
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.input-container-bottom{
+    height:  100%;
+}
+
+.text-container{
+    display: flex;
+    flex-direction: column;
+    width: 95%;
+    padding: 1vh;
+}
