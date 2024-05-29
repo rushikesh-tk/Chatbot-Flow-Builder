@@ -1,35 +1,35 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import "./TextNode.css";
 import { Handle, Position } from "reactflow";
-
-const handleStyle = { left: 10 };
+import { MessageTwoTone, WhatsAppOutlined } from "@ant-design/icons";
 
 function TextNode({ data, isConnectable }) {
-  const onChange = useCallback((evt) => {
-    console.log(evt.target.value, data);
-  }, []);
-
   return (
     <div className="text-updater-node">
+      <div className="node-header">
+        <div className="left-side-header">
+          <MessageTwoTone
+            style={{
+              marginLeft: "0.5vw",
+              marginRight: "0.5vw",
+            }}
+          />
+          <div className="header-text">Send Message</div>
+        </div>
+
+        <WhatsAppOutlined style={{ marginRight: "0.5vw" }} />
+      </div>
+
+      <div className="node-body">{data.value}</div>
+      <Handle
+        type="source"
+        position={Position.Left}
+        id="a"
+        isConnectable={isConnectable}
+      />
       <Handle
         type="target"
-        position={Position.Top}
-        isConnectable={isConnectable}
-      />
-      <div>
-        <label htmlFor="text">Text:</label>
-        <input id="text" name="text" onChange={onChange} className="nodrag" />
-      </div>
-      <Handle
-        type="source"
-        position={Position.Bottom}
-        id="a"
-        style={handleStyle}
-        isConnectable={isConnectable}
-      />
-      <Handle
-        type="source"
-        position={Position.Bottom}
+        position={Position.Right}
         id="b"
         isConnectable={isConnectable}
       />
